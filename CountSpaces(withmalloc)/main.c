@@ -35,8 +35,8 @@ int count_spaces(char* s) {
 	char* cPtr;
 	int spaces = 0;
 	for (cPtr = s; cPtr < s + strlen(s); cPtr++) {
-		if (*cPtr == ' ') {
-			spaces++;
+		if (*cPtr == ' ') { // if the character currently analyzed is a space
+			spaces++; // increase the number of spaces found in the string
 		}
 	}
 	return spaces;
@@ -48,13 +48,13 @@ int* space_positions(char* s, int spaces) {
 	if (p) // if (p) means that the pointer is not null and the malloc command is being executed correctly
 	{
 		for (i = 0; i < strlen(s); i++) {
-			if (s[i] == ' ') {
-				*p = i;
+			if (s[i] == ' ') { // if the character currently analyzed is a space
+				*p = i; // memorize in a position of the vector we allocated before the position of the space in the string
 				p++;
 			}
 		}
 	}
-	else
+	else // this else means that there is a problem allocating the space, maybe there is no memory left to use...
 	{
 		printf("We encountered some problems, please contact the developer\n");
 	}
